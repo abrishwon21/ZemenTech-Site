@@ -28,6 +28,7 @@ class Users{
 
 }
 
+
 class TeamMembers extends Users{
 
 public function FetchTeamMembers(){ 
@@ -43,7 +44,7 @@ public function FetchTeamMembers(){
             return $result;
             }
         }catch(Exception $e){
-            echo $e->getMessage();
+            echo $msg.$e->getMessage();
         }
    }
   
@@ -65,33 +66,47 @@ public function FetchTeamMembers(){
        
    }
 }
-
-class Services {
-    function fetchService(){
+class Customer extends Users{
+    public function addContactForm(){
         GLOBAL $conn;
-        $sql ="SELECT `s_id`, `s_title`, `s_description`, `s_image`, `s_author`, `s_status`, `s_date` FROM `services` WHERE 1";
-        try{
-            $result = $conn->query($sql);
-            while($rows = $result->fetch_assoc()){
-                $s_author = $rows['s_author'];
-                $sql2 = "SELECT `tm_name` FROM `team_members` WHERE `tm_id`='$s_author'";
-                $result2 = $conn->query($sql2);
-                $rows2 = $result2->fetch_assoc();
-            echo"
-            <tr>
-                <td>".$rows['s_title']."</td>
-                <td>".$rows2['tm_name']."</td>
-                <td><label class='badge badge-warning'>".$rows['s_status']."</label></td>
-                <td><label class='badge badge-danger'><a href='service_view.php?Delete=".$rows['s_id']."'>Delete</label></td>
-                <td><label class='badge badge-success'><a href='service_edit.php?Edit=".$rows['s_id']."'>Edit</a></label></td>
-            </tr>
-                
-            ";
+       
+           $this->setUserEmail($_POST['email']);
+            $username = $_POST['fullname'];
+            $email = $this->getUserEmail();
+            $subject = $_POST['subject'];
+            $message = $_POST['message'];
+
+            $insert_data = "INSERT INTO `feedback`(`fb_id`, `fb_uname`, `fb_email`, `fb_subject`, `fb_message`, `fb_status`) VALUES ('','$username','$email','$subject','$message','')";
+            try{
+                $result = $conn->query($insert_data);
+                if(!$result){
+                    throw new Exception("Please check your form again");
+                }else{
+                    echo "<script type='text/javascript'>alert('Thank you for contacting, we\'ll be back just in a minute ')</script>";
+                }
+            }catch(Exception $e){
+                echo $e->getMessage();
             }
+        
+    }
+}
+if(isset($_POST['submit_contact'])){
+    $cust = new Customer();
+    $cust->addContactForm();
+}
+class Services {
+    public function fetchService(){
+        GLOBAL $conn;
+        $serviceMessage = "We are sorry " ;
+        try{
+            $result = $conn->query("SELECT `s_id`, `s_title`,LEFT(`s_description`, 80) as excerpt, `s_description`, `s_image` FROM `services` where 1");
+            if(!$result){
+                throw new Exception($serviceMessage."No Service Found!");
+            }else{
+                return $result;
+            }          
         }catch(Exception $e){
-            
-            $e=$e->getMessage();
-            Header("Location: error_message.php?message=$e");
+            echo $e->getMessage();
         }
     }
 }

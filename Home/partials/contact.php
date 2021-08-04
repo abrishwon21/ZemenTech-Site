@@ -17,23 +17,29 @@
                 <p>mail@zementech.com </p>
             </div>
 
-            <form method="post">
+            <form method="post" name="contact_form_12" onSubmit="return contact_formValidation()">
                 <div class="row">
                     <div class="col-md-4">
-                        <input class="form-control" id="name" placeholder="Full Name" type="text">
+                        <input class="form-control" id="name" name="fullname" placeholder="Full Name" type="text">
+                        <p id="usrname_err" style="color: red; text-transform: capitalize;"></p>
                     </div>
                     <div class="col-md-4">
-                        <input class="form-control" id="email" placeholder="Your Email" type="email">
+                        <input class="form-control" name ="email" id="email" placeholder="Your Email" type="email">
+                        <p id="email_err" style="color: red;"></p>
                     </div>
                     <div class="col-md-4">
-                        <input class="form-control" id="subject" placeholder="Subject" type="text">
+                        <input class="form-control" id="subject" name = "subject" placeholder="Subject" type="text">
+                         <p id="subject_err" style="color: red;"></p>
                     </div>
                     <div class="col-md-12">
-                        <textarea class="form-control" id="message" rows="7" placeholder="Your Message"></textarea>
+                        <textarea class="form-control" id="message" rows="7" name="message" placeholder="Your Message"></textarea>
+                        <p id="message_err" style="color: red;"></p>
                     </div>
                     <div class="col-md-12 text-right">
-                        <button type="submit" class="btn btn-green">SEND MESSAGE</button>
+                        <button type="submit" name="submit_contact" class="btn btn-green">SEND MESSAGE</button>
+                        
                     </div>
+
                 </div>
             </form>
         </div>

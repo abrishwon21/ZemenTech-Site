@@ -24,25 +24,19 @@ include_once $_SERVER["DOCUMENT_ROOT"]."/ZemenTech/Home/includes/controller.php"
     <?php include_once "partials/slider.php"; ?>
     <!-- End Slider -->
 
-
+    <!--Start Services-->
+    <?php include_once "partials/services.php"; ?>
+    <!--End Services-->
+    
     <!--Start Features-->
     <?php include_once "partials/features.php"; ?>
     <!--End Features-->
-
-
-
 
 
     <!--Start Team-->
     <?php include_once "partials/team.php";  ?>
     <!--End Team-->
 
-
-
-
-    <!--Start Services-->
-    <?php include_once "partials/services.php"; ?>
-    <!--End Services-->
 
 
     <!--Start Why Choose us-->
@@ -64,9 +58,6 @@ include_once $_SERVER["DOCUMENT_ROOT"]."/ZemenTech/Home/includes/controller.php"
     <!--Start Contact-->
     <?php include_once "partials/contact.php"; ?>
     <!--End Contact-->
-     <div class="col-md-4">
-        <h1>changed</h1>
-    </div>
 
     <!--Start Footer-->
     <?php include_once "partials/footer.php"; ?>
