@@ -1,3 +1,9 @@
+<?php 
+//create team object class name
+$tm_ob = new TeamMembers();
+?>
+
+
 <section id="team" class="section">
     <div class="container">
         <div class="row">
@@ -11,118 +17,31 @@
         <!-- Team -->
         <div class="team-items team-carousel">
             <!-- Team Member #1 -->
-            <div class="item">
-                <img src="images/team/team1.jpg" alt="" />
-                <h4>Jonh Doe</h4>
-                <h5>Photogropher</h5>
-                <p>Lorem ipsum dolor consectetur dolor consectetur adipisicing incididunt eiusmod temporcd
-                    incididunt consectetur laboredolore dolor adipisicing. </p>
+            <?php 
+                     
+            $result = $tm_ob->FetchTeamMembers();
+            while($row =$result->fetch_assoc()){
+            ?>
+            <div class="item tm_photo">
+                <img src="<?php echo $row['tm_photo']; ?>" alt=""/>
+                <h4><?php echo $row['tm_name']; ?></h4>
+                <h5><?php echo $row['tm_profession']; ?></h5>
+                <p><?php echo $row['tm_description']; ?> </p>
 
                 <div class="socials">
+                <?php
+                   $tm_addrs = $tm_ob->getTeamAddress($row['tm_id']);
+                ?>
                     <ul>
-                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a class="facebook" href="<?php echo $tm_addrs['facebook'];?>"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter" href="<?php echo $tm_addrs['telegram'];?>"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="linkedin" href="<?php echo $tm_addrs['linkedin'];?>"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a class="google-plus" href="<?php echo $tm_addrs['gmail'];?>"><i class="fa fa-google-plus"></i></a></li>
                     </ul>
                 </div>
             </div>
             <!-- End Member -->
-
-            <!-- Team Member #2 -->
-            <div class="item">
-                <img src="images/team/team2.jpg" alt="" />
-                <h4>Jonh Doe</h4>
-                <h5>Web Designer</h5>
-                <p>Lorem ipsum dolor consectetur dolor consectetur adipisicing incididunt eiusmod temporcd
-                    incididunt consectetur laboredolore dolor adipisicing. </p>
-
-                <div class="socials">
-                    <ul>
-                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End Member -->
-
-            <!-- Team Member #3 -->
-            <div class="item">
-                <img src="images/team/team3.jpg" alt="" />
-                <h4>Jonh Doe</h4>
-                <h5>Graphic Designer</h5>
-                <p>Lorem ipsum dolor consectetur dolor consectetur adipisicing incididunt eiusmod temporcd
-                    incididunt consectetur laboredolore dolor adipisicing. </p>
-
-                <div class="socials">
-                    <ul>
-                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End Member -->
-
-            <!-- Team Member #4 -->
-            <div class="item">
-                <img src="images/team/team4.jpg" alt="" />
-                <h4>Jonh Doe</h4>
-                <h5>Photogropher</h5>
-                <p>Lorem ipsum dolor consectetur dolor consectetur adipisicing incididunt eiusmod temporcd
-                    incididunt consectetur laboredolore dolor adipisicing. </p>
-
-                <div class="socials">
-                    <ul>
-                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End Member -->
-
-            <!-- Team Member #5 -->
-            <div class="item">
-                <img src="images/team/team1.jpg" alt="" />
-                <h4>Jonh Doe</h4>
-                <h5>Graphic Designer</h5>
-                <p>Lorem ipsum dolor consectetur dolor consectetur adipisicing incididunt eiusmod temporcd
-                    incididunt consectetur laboredolore dolor adipisicing. </p>
-
-                <div class="socials">
-                    <ul>
-                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End Member -->
-
-            <!-- Team Member #6 -->
-            <div class="item">
-                <img src="images/team/team2.jpg" alt="" />
-                <h4>Jonh Doe</h4>
-                <h5>Web Designer</h5>
-                <p>Lorem ipsum dolor consectetur dolor consectetur adipisicing incididunt eiusmod temporcd
-                    incididunt consectetur laboredolore dolor adipisicing. </p>
-
-                <div class="socials">
-                    <ul>
-                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End Member -->
+               <?php } ?>
         </div>
         <!-- End Team -->
     </div>

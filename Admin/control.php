@@ -102,4 +102,39 @@ function deleteService(){
     }
 }
 deleteService();
+
+
+
+function addPost(){
+    GLOBAL $conn;
+    if(isset($_POST['addpost'])){
+        $postTitle = $conn->real_escape_string($_POST['postTitle']);
+        $postDescription = $_POST['postDescript'];
+        $postAuthor = $conn->real_escape_string($_POST['postAuthor']);
+        $postdate = $_POST['postdate'];
+        
+        
+        try{           
+
+                $query1 = "INSERT INTO `posts`(`p_id`, `p_title`, `p_description`, `p_photo`, `p_date`, `p_author`) VALUES (null, '$postTitle','$postDescription','haa','$postdate', '$postAuthor')";
+               
+                if(!$conn->query($query1)){
+                    throw new Exception("Query error".$conn->error);
+                }
+                else{
+                    $message ="Updated Successfully";
+                    Header("Location: post_view.php?message=$message");
+                }
+                
+   
+        }
+        catch(Exception $e){
+            $e=$e->getMessage();
+            Header("Location: error_message.php?message=$e");
+        }
+    }
+    
+}
+addPost();
+
 ?>

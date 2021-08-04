@@ -64,7 +64,9 @@ include_once $_SERVER["DOCUMENT_ROOT"]."/ZemenTech/Home/includes/controller.php"
     <!--Start Contact-->
     <?php include_once "partials/contact.php"; ?>
     <!--End Contact-->
-
+     <div class="col-md-4">
+        <h1>changed</h1>
+    </div>
 
     <!--Start Footer-->
     <?php include_once "partials/footer.php"; ?>

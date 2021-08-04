@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php include_once "partials/head.php"; ?>
 <?php include_once "control.php"; ?>
 
-<body>
-    <div class="container-scroller">
-        <?php include_once "partials/nav.php"; ?>
+ <?php include_once "partials/nav.php"; ?>
 
         <!-- partial -->
         <div class="main-panel">
