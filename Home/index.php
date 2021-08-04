@@ -1,6 +1,9 @@
 <?php
 
 include_once "partials/head.php";
+
+include_once $_SERVER["DOCUMENT_ROOT"]."/ZemenTech/Home/includes/controller.php";
+
 ?>
 
 <body data-spy="scroll" data-target="#main-menu">
