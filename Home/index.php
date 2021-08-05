@@ -28,6 +28,12 @@ include_once $_SERVER["DOCUMENT_ROOT"]."/ZemenTech/Home/includes/controller.php"
     <?php include_once "partials/services.php"; ?>
     <!--End Services-->
     
+
+    
+    <!--Start Why Choose us-->
+    <?php include_once "partials/aboutus.php"; ?>
+    <!--End Why Choose us-->
+
     <!--Start Features-->
     <?php include_once "partials/features.php"; ?>
     <!--End Features-->
@@ -36,14 +42,6 @@ include_once $_SERVER["DOCUMENT_ROOT"]."/ZemenTech/Home/includes/controller.php"
     <!--Start Team-->
     <?php include_once "partials/team.php";  ?>
     <!--End Team-->
-
-
-
-    <!--Start Why Choose us-->
-    <?php include_once "partials/whyus.php"; ?>
-    <!--End Why Choose us-->
-
-
 
 
     <!-- Start blog-->

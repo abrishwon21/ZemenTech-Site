@@ -18,7 +18,7 @@ $srvc = new Services();
             <!--Services Item-->
             <div class="col-md-4">
                 <div class="services-box">
-                    <div class="services-icon"> <?php echo $row1['s_image']; ?></div>
+                    <div class="services-icon"> <i class="<?php echo $row1['s_image']; ?>"></i> </div>
                     <div class="services-desc">
                         <h4><?php echo $row1['s_title']; ?></h4>
 

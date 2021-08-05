@@ -2,38 +2,26 @@
     <div class="slider-overlay"></div>
     <div class="flexslider">
         <ul class="slides scroll">
+
+        <?php 
+        $about =  new AboutUs();
+         $_slider_ = $about->Slider();
+         while($_slid =$_slider_->fetch_assoc()){
+        ?>
             <li class="first">
                 <div class="slider-text-wrapper">
                     <div class="container">
-                        <div class="big">Free Responsive Template </div>
-                        <div class="small">Are you ready to buy this theme</div>
-                        <a href="#works" class="middle btn btn-white">VIEW PORTFOLIO</a>
+                        <div class="big"><?php echo $_slid['sl_title']; ?></div>
+                        <div class="small"><?php echo $_slid['sl_subtitle']; ?></div>
+                        <a href="<?php echo $_slid['link']; ?>" class="middle btn btn-white">Read More</a>
                     </div>
                 </div>
-                <img src="images/slider/1.jpg" alt="">
+
+                <img src="images/slider/<?php echo $_slid['sl_image']; ?>" alt="Zemen Tech">
             </li>
 
-            <li class="secondary">
-                <div class="slider-text-wrapper">
-                    <div class="container">
-                        <div class="big">Free Responsive Template </div>
-                        <div class="small">Are you ready to buy this theme</div>
-                        <a href="#works" class=" middle btn btn-white">VIEW PORTFOLIO</a>
-                    </div>
-                </div>
-                <img src="images/slider/2.jpg" alt="">
-            </li>
+<?php } ?>
 
-            <li class="third">
-                <div class="slider-text-wrapper">
-                    <div class="container">
-                        <div class="big">Free Responsive Template </div>
-                        <div class="small">Are you ready to buy this theme</div>
-                        <a href="#works" class="middle btn btn-white">VIEW PORTFOLIO</a>
-                    </div>
-                </div>
-                <img src="images/slider/3.jpg" alt="">
-            </li>
         </ul>
     </div>
 </section>

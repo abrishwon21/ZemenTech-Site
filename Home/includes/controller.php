@@ -109,5 +109,53 @@ class Services {
             echo $e->getMessage();
         }
     }
+
+    public function Categories(){
+        GLOBAL $conn;
+        try{
+            $_categ_ = $conn->query("SELECT * FROM `categories` WHERE 1");
+            if(!$_categ_){
+                throw new Exception("No category found, for the time being");
+            }else{
+                return $_categ_;
+            }
+
+        }catch(Exception $e){
+            echo $e->getMessage();
+        }
+    }
+}
+
+class AboutUs {
+    public function Slider(){
+       Global $conn;
+       try{
+            $_slider_ = $conn->query("SELECT * FROM `slider` WHERE 1");
+            if(!$_slider_){
+                throw new Exception("No records found");
+            }else{
+                return $_slider_;
+            }
+       }catch(Exception $e){
+           echo $e->getMessage();
+       }
+    }
+    public function fetchAboutUs(){
+        Global $conn;
+       
+        try{
+            $aboutFetch = $conn->query( "SELECT * FROM `company` WHERE 1");
+            if(!$aboutFetch){
+                throw new Exception("No description found!");
+
+            }else{
+                return $aboutFetch;
+            }
+        }catch(Exception $e){
+            echo $e->getMessage();
+        }
+    }
+
+    
 }
 ?>
